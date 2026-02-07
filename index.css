@@ -1,0 +1,443 @@
+/* ------------------------ */
+/* Custom Properties        */
+/* ------------------------ */
+:root {
+    /* colors */
+    --clr-primary: #0E0E0E;
+    --clr-dark: #202020;
+    --clr-secondary: #FFFFFF;
+    --clr-lightGray: #ECECEC;
+    --clr-gray: #D7D7D7;
+
+
+    /* font families */
+    --ff-logo: "Roboto", sans-serif;
+    --ff-serif: "Source Sans 3", sans-serif;
+
+}
+
+
+/* ------------------------ */
+/* Reset                    */
+/* ------------------------ */
+
+/* Box sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* set up the body */
+body {
+    font-family: var(--ff-serif);
+    color: var(--clr-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+ul {
+    margin: 0;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* make images easy to work with */
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+h1 {
+    line-height: 1.1;
+}
+
+h2,
+h3,
+p {
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus,
+a:hover {
+    text-decoration: underline;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ------------------------ */
+/* Utility classes          */
+/* ------------------------ */
+
+.flex {
+    display: flex;
+    /* gap: var(--gap, 1rem); */
+}
+
+.grid {
+    display: grid;
+    /* gap: var(--gap, 1rem); */
+}
+
+.container {
+    padding-inline: 1.25em;
+    margin-inline: auto;
+    max-width: 67.813rem;
+}
+
+@media(min-width: 680px) {
+    .container {
+        padding-inline: 3.313em;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    /* added line */
+    border: 0;
+}
+
+
+/* colors */
+.bg-dark {
+    background-color: var(--clr-dark);
+}
+
+.text-primary {
+    color: var(--clr-primary);
+}
+
+.text-secondary {
+    color: var(--clr-secondary);
+}
+
+.text-dark {
+    color: var(--clr-dark);
+}
+
+.text-lightGray {
+    color: var(--clr-lightGray);
+}
+
+.text-gray {
+    color: var(--clr-gray);
+}
+
+
+/*header */
+.header {
+    justify-content: space-between;
+    align-items: center;
+    height: 59px;
+    background-color: white;
+}
+
+.logo-container {
+    align-items: center;
+}
+
+.logo {
+    width: 1.448rem;
+    height: 1.448rem;
+}
+
+.logo-title {
+    font-size: clamp(0.875rem, 0.6436rem + 0.8942vw, 1.25rem);
+    font-family: var(--ff-logo);
+    font-weight: 700;
+    margin-left: 0.193em;
+
+}
+
+.header a {
+    font-weight: 600;
+    font-size: clamp(0.75rem, 0.5958rem + 0.5961vw, 1rem);
+    text-transform: uppercase;
+}
+
+.navigation a:last-child {
+    margin-left: 1.938em;
+}
+
+@media (min-width: 40rem) {
+    .header {
+        height: 83px;
+    }
+
+    .logo {
+        width: 2.141rem;
+        height: 2.141rem;
+    }
+
+}
+
+/* -------------------Home------------------- */
+
+/* hero */
+.hero {
+    height: clamp(18.313rem, 10.793rem + 29.061vw, 30.5rem);
+    max-width: 1085px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.hero img {
+    height: 100%;
+}
+
+.hero-post {
+    position: absolute;
+    top: clamp(5rem, -2.983rem + 30.851vw, 17.938rem);
+    color: white;
+}
+
+.hero-article-title {
+    font-size: clamp(2rem, 1.6915rem + 1.1923vw, 2.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.hero-article-date {
+    font-size: clamp(0.75rem, 0.5958rem + 0.5961vw, 1rem);
+    margin-bottom: 0.5rem;
+}
+
+
+@media (min-width: 900px) {
+    .hero img {
+        object-position: 50% 1%;
+    }
+
+    .hero-article-preview {
+        margin-right: 26rem;
+    }
+}
+
+/* article listing */
+.article-listing {
+    justify-items: center;
+    margin-top: 34px;
+    row-gap: 41px;
+    margin-bottom: 50px;
+}
+
+.article-listing article {
+    width: 100%;
+    min-height: 23rem;
+}
+
+.article-listing img {
+    height: 232px;
+    margin-bottom: 14px;
+    object-fit: cover;
+}
+
+.article-date,
+.article-title {
+    margin-bottom: 9px;
+}
+
+.article-preview {
+    padding-right: 4px;
+}
+
+@media (min-width: 740px) {
+    .article-listing {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 26px;
+    }
+
+}
+
+@media (min-width: 900px) {
+
+    .article-listing article {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .article-listing {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .article-listing article {
+        width: 280px;
+    }
+}
+
+@media (min-width: 1080px) {
+    .article-listing article {
+        width: 309px;
+    }
+}
+
+
+/* footer */
+
+.footer {
+    background-color: #202020;
+    color: #ECECEC;
+    padding: 37px 0;
+    text-align: center;
+}
+
+.footer h3,
+.footer span {
+    font-size: 12px;
+}
+
+.footer span {
+    color: #D7D7D7;
+}
+
+
+/* -------------------Blog------------------- */
+.blog {
+    margin: 35px auto;
+}
+
+
+.blog-main {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: clamp(3.188rem, 2.339rem + 3.279vw, 4.563rem);
+}
+
+.blog-main .hero-article-preview {
+    margin: 15px 0 35px 0;
+    margin-top: clamp(0.938rem, 0.475rem + 1.788vw, 1.688rem);
+    margin-right: 0;
+    margin-bottom: 35px;
+}
+
+.blog-main .hero-article-date {
+    margin-bottom: clamp(1rem, 0.692rem + 1.192vw, 1.5rem);
+}
+
+
+.blog-text h2,
+.blog-text p {
+    margin-bottom: 20px;
+}
+
+.blog-main div h2 {
+    font-size: clamp(1rem, 0.6915rem + 1.1923vw, 1.5rem);
+}
+
+.blog-main div p {
+    font-size: clamp(1rem, 0.9229rem + 0.2981vw, 1.125rem);
+}
+
+
+.blog-main img {
+    height: clamp(11.938rem, 0.485rem + 44.262vw, 30.5rem);
+    border-radius: 3px;
+    margin-bottom: 35px;
+}
+
+@media (min-width: 1080px) {
+    .blog-container {
+        padding-inline: 121px;
+    }
+}
+
+/* blog posts */
+.blog-posts {
+    text-align: center;
+}
+
+.blog-posts h2 {
+    font-size: clamp(1rem, 0.6915rem + 1.1923vw, 1.5rem);
+}
+
+
+
+/* --------------About---------------- */
+.about img {
+    width: 182px;
+    height: 182px;
+    border-radius: 50%;
+    border: 10px solid rgba(214, 135, 234, 0.47);
+    filter: grayscale(20%);
+}
+
+@media (min-width: 1000px) {
+
+
+    .about-intro {
+        display: flex;
+        align-items: center;
+        margin: 91px 0 65px 0;
+    }
+
+    .about img {
+        margin-bottom: 0;
+        min-height: 182px;
+        min-width: 182px;
+        margin-right: 33px;
+    }
+
+    .about-intro .hero-article-preview {
+        margin: 0;
+    }
+}
+
+body {
+    background-color: #FAFAFA;
+}
